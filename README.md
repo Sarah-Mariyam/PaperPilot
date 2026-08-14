@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PaperPilot
+
+**Understand any research paper in minutes.**
+
+PaperPilot is a web application that helps students quickly understand research papers. Upload a PDF and get:
+
+- A clear, simple summary
+- Key points from the paper
+- The ability to ask questions about the content
+
+Built for the **Impact Forge 2026** hackathon.
+
+---
+
+## Features
+
+- Upload any research paper (PDF)
+- AI-generated summary in simple language
+- Extracted key points
+- Ask questions about the paper
+- Clean, modern dark UI
+- Copy buttons for summary and answers
+- Fully client-side PDF text extraction
+
+---
+
+## Tech Stack
+
+- **Frontend**: Next.js 14 (App Router) + JavaScript
+- **Styling**: Tailwind CSS
+- **PDF Processing**: pdfjs-dist (runs in the browser)
+- **AI**: Featherless.ai (OpenAI-compatible API)
+- **Model used**: Qwen/Qwen2.5-7B-Instruct
+
+---
+
+## Project Structure
+
+paperpilot/
+├── app/
+│ ├── ai.js # All AI logic and Featherless integration
+│ ├── page.js # Main UI and application logic
+│ ├── layout.js
+│ └── globals.css
+├── .env.local # API key (not committed)
+├── package.json
+└── README.md
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
 
-```bash
+````bash
+git clone https://github.com/Sarah-Mariyam/paperpilot.git
+cd paperpilot
+
+2.Install Dependencies
+npm install
+
+3. Add your Featherless API key
+Create a file named .env.local in the root of the project and add:
+NEXT_PUBLIC_FEATHERLESS_API_KEY=your_featherless_api_key_here
+
+4. Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+How It Works
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+User uploads a research paper (PDF)
+pdfjs-dist extracts the text directly in the browser
+The extracted text is sent to Featherless.ai
+The model returns a structured summary + key points
+Users can ask follow-up questions about the same paper
 
-## Learn More
+All AI calls are handled in app/ai.js for clean separation of concerns.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+VariableDescription
+NEXT_PUBLIC_FEATHERLESS_API_KEYYour Featherless.ai API key
 
-## Deploy on Vercel
+Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The app works with a temporary fallback response if no API key is provided.
+Once the real Featherless API key is added, the app switches to live AI responses automatically.
+PDF text is truncated to stay within model context limits.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Author
+Sarah Mariyam
+Built for Impact Forge: Summer 2026 Hackathon
+
+
+4. Save the file (`Ctrl + S`).
+
+---
+
+### Step 2: Push to GitHub
+
+Open the terminal in VS Code and run these commands one by one:
+
+```powershell
+git add .
+
+````
