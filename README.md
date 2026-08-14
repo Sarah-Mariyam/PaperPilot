@@ -45,27 +45,23 @@ paperpilot/
 ├── .env.local # API key (not committed)
 ├── package.json
 └── README.md
-
----
+text---
 
 ## Getting Started
 
 ### 1. Clone the repository
 
-````bash
+```bash
 git clone https://github.com/Sarah-Mariyam/paperpilot.git
 cd paperpilot
-
-2.Install Dependencies
-npm install
-
+2. Install dependencies
+Bashnpm install
 3. Add your Featherless API key
 Create a file named .env.local in the root of the project and add:
-NEXT_PUBLIC_FEATHERLESS_API_KEY=your_featherless_api_key_here
-
+envNEXT_PUBLIC_FEATHERLESS_API_KEY=your_featherless_api_key_here
+You can get an API key from Featherless.ai
 4. Run the development server
-npm run dev
-
+Bashnpm run dev
 Open http://localhost:3000 in your browser.
 
 How It Works
@@ -78,11 +74,21 @@ Users can ask follow-up questions about the same paper
 
 All AI calls are handled in app/ai.js for clean separation of concerns.
 
-
 Environment Variables
 
-VariableDescription
-NEXT_PUBLIC_FEATHERLESS_API_KEYYour Featherless.ai API key
+
+
+
+
+
+
+
+
+
+
+
+
+VariableDescriptionNEXT_PUBLIC_FEATHERLESS_API_KEYYour Featherless.ai API key
 
 Notes
 
@@ -90,20 +96,8 @@ The app works with a temporary fallback response if no API key is provided.
 Once the real Featherless API key is added, the app switches to live AI responses automatically.
 PDF text is truncated to stay within model context limits.
 
+
 Author
 Sarah Mariyam
-Built for Impact Forge: Summer 2026 Hackathon
-
-
-4. Save the file (`Ctrl + S`).
-
----
-
-### Step 2: Push to GitHub
-
-Open the terminal in VS Code and run these commands one by one:
-
-```powershell
-git add .
-
-````
+Built for Impact Forge 2026 (Student Virtual Code Sprint)
+```
